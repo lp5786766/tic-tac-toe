@@ -1,3 +1,29 @@
 * {
     background-color: black;
 }
+
+h1 {
+    color: yellow;
+}
+
+i {
+    color: green;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.field {
+    border: 1px solid white;
+    height: 6rem;
+    width: 6rem;
+    color: white;
+
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0px;
+}
