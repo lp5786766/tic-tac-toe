@@ -10,8 +10,12 @@ i {
     color: green;
 }
 
+.nav-wrapper {
+    text-align: center;
+}
+
 .container {
-    margin-top: 20px;
+    margin-top: 8rem;
 }
 
 .field {
