@@ -15,13 +15,6 @@ $('.field').hover(
   }
 );
 
-// $('.field').on('hover', function (event) {
-//   if ($(this).html() === "") {
-//     $(this).addClass('hover');
-//     $(this).removeClass('hover');
-//   }
-//   });
-
 
 // Game of tic tac toe
 
