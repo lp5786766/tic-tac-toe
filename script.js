@@ -27,3 +27,7 @@ $('.field').on('click', function (event) {
   const x = $('<p>x</p>').addClass("token");
   $(this).append(x);
 });
+
+
+// Clear field button 
+

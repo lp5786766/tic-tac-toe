@@ -10,6 +10,9 @@ h1 {
     color: green;
 }
 
+.col.s3.field {
+    width: 100%;
+}
 
 .token {
     font-family: 'Josefin Sans', sans-serif;
@@ -40,11 +43,18 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
+.board {
+    width: 35%;
+    height: 35%;
 }
 
 .row {
     display: flex;
     justify-content: center;
     margin-bottom: 0px;
+}
+.btn {
+    margin-top: 80px;
 }
