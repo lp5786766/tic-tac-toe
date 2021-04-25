@@ -10,6 +10,13 @@ h1 {
     color: green;
 }
 
+
+.token {
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0px;
+    font-size: 1.4cm;
+}
+
 .fa-bullseye {
     color: red;
 }
@@ -30,6 +37,9 @@ h1 {
     height: 6rem;
     width: 6rem;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
