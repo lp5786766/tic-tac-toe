@@ -1,13 +1,20 @@
 * {
-    background-color: black;
+    background-color: rgb(66, 61, 61);
 }
 
 h1 {
     color: yellow;
 }
 
-i {
+.fa-times {
     color: green;
+}
+
+.fa-bullseye {
+    color: red;
+}
+.hover {
+    background-color: gray;
 }
 
 .nav-wrapper {
