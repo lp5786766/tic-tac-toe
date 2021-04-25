@@ -24,8 +24,18 @@ $('.field').hover(
 // Append X on click
 
 $('.field').on('click', function (event) {
-  const x = $('<p>x</p>').addClass("token");
-  $(this).append(x);
+  console.log($(this).html());
+  if ($(this).html() === "") {
+    const x = $('<p>x</p>').addClass("token");
+    $(this).append(x);
+    const tokenId = $(this).attr('id');
+    alert(`${tokenId} clicked!`);
+  } else {
+    alert("no action");
+  }
+  
+  
+ 
 });
 
 
