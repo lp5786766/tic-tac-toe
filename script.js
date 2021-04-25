@@ -6,12 +6,23 @@
 // change background of the field while hover (make different colors later)
 $('.field').hover(
   function () {
-    $(this).addClass('hover');
+    if ($(this).html() === "") {
+      $(this).addClass('hover');
+    }
   },
   function () {
     $(this).removeClass('hover');
   }
 );
+
+// $('.field').on('hover', function (event) {
+//   if ($(this).html() === "") {
+//     $(this).addClass('hover');
+//     $(this).removeClass('hover');
+//   }
+//   });
+
+
 // Game of tic tac toe
 
 // Adding Xs and Os
@@ -24,18 +35,13 @@ $('.field').hover(
 // Append X on click
 
 $('.field').on('click', function (event) {
-  console.log($(this).html());
   if ($(this).html() === "") {
     const x = $('<p>x</p>').addClass("token");
     $(this).append(x);
     const tokenId = $(this).attr('id');
-    alert(`${tokenId} clicked!`);
-  } else {
-    alert("no action");
-  }
-  
-  
- 
+    $(this).removeClass('hover')
+    // alert(`${tokenId} clicked!`);
+  } 
 });
 
 
