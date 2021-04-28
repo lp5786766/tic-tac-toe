@@ -26,12 +26,25 @@ $('.field').hover(
 // 4. Player who gets his tokens in a row of three wins
 
 // Append X on click
-
+let turn = 1;
 $('.field').on('click', function (event) {
+  // console.log(turn);
+  
   if ($(this).html() === "") {
     const x = $('<p>x</p>').addClass("token");
-    $(this).append(x);
-    const tokenId = $(this).attr('id');
+    const o = $('<p>o</p>').addClass("token");
+    // if o turn
+    if (turn === 1) {
+      $(this).append(x);
+      turn = 0;
+    } else if (turn === 0) {
+      $(this).append(o);
+      turn = 1;
+    }
+    console.log(turn);
+
+    // $(this).append(x);
+    // const tokenId = $(this).attr('id');
     $(this).removeClass('hover')
     // alert(`${tokenId} clicked!`);
   } 
@@ -39,4 +52,7 @@ $('.field').on('click', function (event) {
 
 
 // Clear field button 
-
+$('.clear').on('click', function (event) {
+  $('.field').empty();
+  // crosses turn
+})

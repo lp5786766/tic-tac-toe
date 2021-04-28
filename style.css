@@ -3,7 +3,13 @@
 }
 
 h1 {
+    font-family: 'Josefin Sans', sans-serif;
     color: yellow;
+}
+
+.turn {
+    color:blanchedalmond;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .fa-times {
