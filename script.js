@@ -50,35 +50,24 @@ $('.field').on('click', function (event) {
     let boxEight = $('#8').text();
     let boxNine = $('#9').text();
     console.log(turn);
-    if (boxOne === 'x' && boxTwo === 'x') {
-      // change the text of the message
-      let message = $('#message').text();
-      message = $('#message').text("Crosses, you WIN!");
-      console.log(message);
-      
-    }
     // CHECK AGAINST WINNING COMBINATIONS FUNCTION:
+    if (boxOne === 'x' && boxTwo === 'x' && boxThee === "x") {
+      // change the text of the message
+      crossWin();
+    }
 
-    console.log(`1A=${boxOne}`);
-    console.log(`1B=${boxTwo}`);
-    console.log(`1C=${boxThee}`);
-    console.log(`2A=${boxFour}`);
-    console.log(`2B=${boxFive}`);
-    console.log(`2C=${boxSix}`);
-    console.log(`3A=${boxSeven}`);
-    console.log(`3B=${boxEight}`);
-    console.log(`3C=${boxNine}`);
-
-    // $(this).append(x);
-    // const tokenId = $(this).attr('id');
     $(this).removeClass('hover');
-    // alert(`${tokenId} clicked!`);
   }
 });
+
+// Crosses win
+const crossWin = () => {
+  message = $('#message').text('Crosses, you WIN!');
+};
 
 // Clear field button
 $('.clear').on('click', function (event) {
   $('.field').empty();
-  message = $('#message').text("Crosses, your turn!");
-  // crosses turn
+  message = $('#message').text('Crosses, your turn!');
+  turn = 1;
 });
