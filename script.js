@@ -79,5 +79,6 @@ $('.field').on('click', function (event) {
 // Clear field button
 $('.clear').on('click', function (event) {
   $('.field').empty();
+  message = $('#message').text("Crosses, your turn!");
   // crosses turn
 });
