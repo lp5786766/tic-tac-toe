@@ -30,10 +30,15 @@ $('.field').hover(
 // Append X on click
 let turn = 1;
 $('.field').on('click', function (event) {
-  // console.log(turn);
-  const boxOne = $('#1').text();
-  console.log(`here is ${boxOne}`);
-
+  let boxOne = $('#1').text();
+  let boxTwo = $('#2').text();
+  const boxThee = $('#3').text();
+  const boxFour = $('#4').text();
+  const boxFive = $('#5').text();
+  const boxSix = $('#6').text();
+  const boxSeven = $('#7').text();
+  const boxEight = $('#8').text();
+  const boxNine = $('#9').text();
 
   if ($(this).html() === "") {
     const x = $('<p>x</p>').addClass("token");
@@ -48,10 +53,22 @@ $('.field').on('click', function (event) {
     }
     // "turn" decides whose turn is NEXT:
     console.log(turn);
-    // CHECK AGAINST WINNING COMBINATIONS FUNCTION:
-    
-    
+    if (boxOne === "x"&& boxTwo === "x") {
+      alert("X wins!");
+    }
+    // CHECK AGAINST WINNING COMBINATIONS FUNCTION:    
 
+    
+    console.log(`1A=${boxOne}`);
+    console.log(`1B=${boxTwo}`);
+    console.log(`1C=${boxThee}`);
+    console.log(`2A=${boxFour}`);
+    console.log(`2B=${boxFive}`);
+    console.log(`2C=${boxSix}`);
+    console.log(`3A=${boxSeven}`);
+    console.log(`3B=${boxEight}`);
+    console.log(`3C=${boxNine}`);
+    
 
 
 
