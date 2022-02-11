@@ -51,7 +51,11 @@ $('.field').on('click', function (event) {
     let boxNine = $('#9').text();
     console.log(turn);
     if (boxOne === 'x' && boxTwo === 'x') {
-      alert('X wins!');
+      // change the text of the message
+      let message = $('#message').text();
+      message = $('#message').text("Crosses, you WIN!");
+      console.log(message);
+      
     }
     // CHECK AGAINST WINNING COMBINATIONS FUNCTION:
 
