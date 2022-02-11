@@ -20,16 +20,21 @@ $('.field').hover(
 
 // Adding Xs and Os
 // Rules:
-// 1. Xs go first
-// 2. Players go one by one.
-// 3. Players cannot choose a filled field.
-// 4. Player who gets his tokens in a row of three wins
+// 1. Xs go first - DONE
+// 2. Players go one by one. - DONE
+// 3. Players cannot choose a filled field. - DONE
+// 4. Player who gets his tokens in a row of three wins:
+// 4.1 clg all 9 squares after each turn.
+// 4.2 check against winning combinations
 
 // Append X on click
 let turn = 1;
 $('.field').on('click', function (event) {
   // console.log(turn);
-  
+  const boxOne = $('#1').text();
+  console.log(`here is ${boxOne}`);
+
+
   if ($(this).html() === "") {
     const x = $('<p>x</p>').addClass("token");
     const o = $('<p>o</p>').addClass("token");
@@ -41,13 +46,24 @@ $('.field').on('click', function (event) {
       $(this).append(o);
       turn = 1;
     }
+    // "turn" decides whose turn is NEXT:
     console.log(turn);
+    // CHECK AGAINST WINNING COMBINATIONS FUNCTION:
+    
+    
+
+
+
+
 
     // $(this).append(x);
     // const tokenId = $(this).attr('id');
     $(this).removeClass('hover')
     // alert(`${tokenId} clicked!`);
   } 
+
+  
+
 });
 
 
