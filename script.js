@@ -27,6 +27,8 @@ $('.field').hover(
 
 // Append X on click
 let turn = 1;
+let message = $('#message');
+
 $('.field').on('click', function (event) {
   if ($(this).html() === '') {
     const x = $('<p>x</p>').addClass('token');
@@ -35,9 +37,12 @@ $('.field').on('click', function (event) {
     if (turn === 1) {
       $(this).append(x);
       turn = 0;
+      
+      message.text('Holes, your turn!');
     } else if (turn === 0) {
       $(this).append(o);
       turn = 1;
+      message.text('Crosses, your turn!');
     }
     // "turn" decides whose turn is NEXT:
     let boxOne = $('#1').text();
@@ -52,18 +57,29 @@ $('.field').on('click', function (event) {
     console.log(turn);
     // CHECK AGAINST WINNING COMBINATIONS FUNCTION:
     if (boxOne === 'x' && boxTwo === 'x' && boxThee === "x") {
-      // change the text of the message
-      crossWin();
+ 
+      xWin();
     }
-
     $(this).removeClass('hover');
   }
 });
 
 // Crosses win
-const crossWin = () => {
-  message = $('#message').text('Crosses, you WIN!');
+const xWin = () => {
+  // change the text of the message
+  message.text('Crosses, you WIN!');
+  // Block further game
+  // EXTRA: Cross animation or design
 };
+
+const oWin = () => {
+  // change the text of the message
+  message.text('Holes, you WIN!');
+  // Block further game
+  // EXTRA: Holes animation or design
+};
+
+
 
 // Clear field button
 $('.clear').on('click', function (event) {
