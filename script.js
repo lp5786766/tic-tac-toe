@@ -32,7 +32,7 @@ field.on('click', function (event) {
       // "turn" decides whose turn is NEXT:
       let boxOne = $('#1').text();
       let boxTwo = $('#2').text();
-      let boxThee = $('#3').text();
+      let boxThree = $('#3').text();
       let boxFour = $('#4').text();
       let boxFive = $('#5').text();
       let boxSix = $('#6').text();
@@ -41,8 +41,29 @@ field.on('click', function (event) {
       let boxNine = $('#9').text();
       console.log(turn);
       // CHECK AGAINST WINNING COMBINATIONS FUNCTION:
-      if (boxOne === 'x' && boxTwo === 'x' && boxThee === 'x') {
+      if (
+        (boxOne === 'x' && boxTwo === 'x' && boxThree === 'x') ||
+        (boxOne === 'x' && boxFive === 'x' && boxNine === 'x') ||
+        (boxOne === 'x' && boxFour === 'x' && boxSeven === 'x') ||
+        (boxTwo === 'x' && boxFive === 'x' && boxEight === 'x') ||
+        (boxThree === 'x' && boxSix === 'x' && boxNine === 'x') ||
+        (boxFour === 'x' && boxFive === 'x' && boxSix === 'x') ||
+        (boxSeven === 'x' && boxEight === 'x' && boxNine === 'x') ||
+        (boxThree === 'x' && boxFive === 'x' && boxSeven === 'x')
+      ) {
         xWin();
+        game = 'gameover';
+      } else if (
+        (boxOne === 'o' && boxTwo === 'o' && boxThree === 'o') ||
+        (boxOne === 'o' && boxFive === 'o' && boxNine === 'o') ||
+        (boxOne === 'o' && boxFour === 'o' && boxSeven === 'o') ||
+        (boxTwo === 'o' && boxFive === 'o' && boxEight === 'o') ||
+        (boxThree === 'o' && boxSix === 'o' && boxNine === 'o') ||
+        (boxFour === 'o' && boxFive === 'o' && boxSix === 'o') ||
+        (boxSeven === 'o' && boxEight === 'o' && boxNine === 'o') ||
+        (boxThree === 'o' && boxFive === 'o' && boxSeven === 'o')
+      ) {
+        oWin();
         game = 'gameover';
       }
       $(this).removeClass('hover');
