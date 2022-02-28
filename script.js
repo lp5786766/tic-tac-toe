@@ -40,6 +40,7 @@ field.on('click', function (event) {
       let boxEight = $('#8').text();
       let boxNine = $('#9').text();
       console.log(turn);
+      console.log(boxTwo);
       // CHECK AGAINST WINNING COMBINATIONS FUNCTION:
       if (
         (boxOne === 'x' && boxTwo === 'x' && boxThree === 'x') ||
@@ -65,6 +66,19 @@ field.on('click', function (event) {
       ) {
         oWin();
         game = 'gameover';
+      } else if (
+        // tie conditions
+        boxOne !== '' &&
+        boxTwo !== '' &&
+        boxThree !== '' &&
+        boxFour !== '' &&
+        boxFive !== '' &&
+        boxSix !== '' &&
+        boxSeven !== '' &&
+        boxEight !== '' &&
+        boxNine !== ''
+      ) {
+        tie();
       }
       $(this).removeClass('hover');
     }
@@ -106,9 +120,14 @@ const oWin = () => {
   // EXTRA: Holes animation or design
 };
 
+const tie = () => {
+  message.text(`It's a tie!`);
+};
+
 // Clear field button
 $('.clear').on('click', function (event) {
   $('.field').empty();
   message = $('#message').text('Crosses, your turn!');
   turn = 1;
+  game = " ";
 });
