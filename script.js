@@ -1,11 +1,11 @@
-// $('.field').on('click', function (event) {
-//   alert('clicked!');
-// });
 let turn = 1;
 let message = $('#message');
 const field = $('.clickable');
+const xTurnIcon = $('.x-turn-icon');
+const oTurnIcon = $('.o-turn-icon');
 let game;
 
+// Gameplay: click field to enter your token:
 field.on('click', function (event) {
   // check if the game is over
   if (game === 'gameover') {
@@ -19,11 +19,14 @@ field.on('click', function (event) {
       if (turn === 1) {
         $(this).append(x);
         turn = 0;
-
+        xTurnIcon.addClass('hidden');
+        oTurnIcon.removeClass('hidden');
         message.text('Holes, your turn!');
       } else if (turn === 0) {
         $(this).append(o);
         turn = 1;
+        oTurnIcon.addClass('hidden');
+        xTurnIcon.removeClass('hidden');
         message.text('Crosses, your turn!');
       }
       // "turn" decides whose turn is NEXT:
@@ -48,7 +51,6 @@ field.on('click', function (event) {
 });
 
 // change background of the field while hover (make different colors later)
-
 field.mouseover(function () {
   if (game === 'gameover') {
     // block the clicking
@@ -59,28 +61,16 @@ field.mouseover(function () {
     }
   }
 });
-
 field.mouseout(function () {
   $(this).removeClass('hover');
 });
-
-// Game of tic tac toe
-
-// Adding Xs and Os
-// Rules:
-// 1. Xs go first - DONE
-// 2. Players go one by one. - DONE
-// 3. Players cannot choose a filled field. - DONE
-// 4. Player who gets his tokens in a row of three wins:
-// 4.1 clg all 9 squares after each turn.
-// 4.2 check against winning combinations
-
-// Append X on click
 
 // Crosses win
 const xWin = () => {
   // change the text of the message
   message.text('Crosses, you WIN!');
+  oTurnIcon.addClass('hidden');
+  xTurnIcon.removeClass('hidden');
 
   // Block further game
   // EXTRA: Cross animation or design
@@ -89,6 +79,8 @@ const xWin = () => {
 const oWin = () => {
   // change the text of the message
   message.text('Holes, you WIN!');
+  xTurnIcon.addClass('hidden');
+  oTurnIcon.removeClass('hidden');
   // Block further game
   // EXTRA: Holes animation or design
 };
