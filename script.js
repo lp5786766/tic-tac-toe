@@ -1,21 +1,18 @@
 let turn = 1;
+let game;
+let result;
 let message = $('#message');
 const field = $('.clickable');
 const xTurnIcon = $('.x-turn-icon');
 const oTurnIcon = $('.o-turn-icon');
-let game;
 
 // Gameplay: click field to enter your token:
 field.on('click', function (event) {
-  // check if the game is over
-  if (game === 'gameover') {
-    // block the clicking
-    console.log(game);
-  } else {
+    // appending to empty fields
     if ($(this).html() === '') {
       const x = $('<p>x</p>').addClass('token');
       const o = $('<p>o</p>').addClass('token');
-      // if o turn
+      // according to turns
       if (turn === 1) {
         $(this).append(x);
         turn = 0;
@@ -39,32 +36,33 @@ field.on('click', function (event) {
       let boxSeven = $('#7').text();
       let boxEight = $('#8').text();
       let boxNine = $('#9').text();
-      console.log(turn);
-      console.log(boxTwo);
-      console.log(boxFive);
-      console.log(boxEight);
+      
       // CHECK AGAINST WINNING COMBINATIONS FUNCTION:
 
       if (boxOne === boxTwo && boxOne === boxThree  && boxOne !== "") {
-       console.log(`${boxOne} wins!`);
-      //  boxOne.addClass('win-cross');
+       result = boxOne;
+       Win();
       } else if (boxOne === boxFive && boxOne === boxNine  && boxOne !== "") {
-        console.log(`${boxOne} wins!`);
+        result = boxOne;
+        Win();
       } else if (boxOne === boxFour && boxOne === boxSeven && boxOne !== "") {
-        console.log(`${boxOne} wins!`);
+        result = boxOne;
+        Win();
       } else if (boxTwo === boxFive && boxTwo === boxEight  && boxTwo !== "") {
-        console.log(`${boxTwo} wins!`);
+        result = boxTwo;
+        Win();
       } else if (boxThree === boxSix && boxThree === boxNine  && boxThree !== "") {
-        console.log(`${boxThree} wins!`);
+        result = boxThree;
+        Win();
       } else if (boxThree === boxFive && boxThree === boxSeven && boxThree !== "") {
-        console.log(`${boxThree} wins!`);
-        // xWin();
-        // game = 'gameover';
-      }  
-      else if (boxFour === boxFive && boxFour === boxSix && boxFour !== "") {
-        console.log(`${boxFour} wins!`);
+        result = boxThree;
+        Win();
+      } else if (boxFour === boxFive && boxFour === boxSix && boxFour !== "") {
+        result = boxFour;
+        Win();
       } else if (boxSeven === boxEight && boxSeven === boxNine && boxSeven !== "") {
-        console.log(`${boxSeven} wins!`);
+        result = boxSeven;
+        Win();
       } else if (
         // tie conditions
         boxOne !== '' &&
@@ -81,14 +79,12 @@ field.on('click', function (event) {
       }
       $(this).removeClass('hover');
     }
-  }
+  return result;
 });
 
 // change background of the field while hover (make different colors later)
 field.mouseover(function () {
   if (game === 'gameover') {
-    // block the clicking
-    console.log(game);
   } else {
     if ($(this).html() === '') {
       $(this).addClass('hover');
@@ -99,28 +95,25 @@ field.mouseout(function () {
   $(this).removeClass('hover');
 });
 
-// Crosses win
-const xWin = () => {
-  // change the text of the message
-  message.text('Crosses, you WIN!');
+// Win
+const Win = () => {
+  // change the text of the message and icon
+  if (result === 'x') {
+    message.text('Crosses, you WIN!');
   oTurnIcon.addClass('hidden');
   xTurnIcon.removeClass('hidden');
-
-  // Block further game
-  // EXTRA: Cross animation or design
-};
-
-const oWin = () => {
-  // change the text of the message
-  message.text('Holes, you WIN!');
-  xTurnIcon.addClass('hidden');
-  oTurnIcon.removeClass('hidden');
-  // Block further game
-  // EXTRA: Holes animation or design
+  } else if (result === 'o') {
+    message.text('Holes, you WIN!');
+    xTurnIcon.addClass('hidden');
+    oTurnIcon.removeClass('hidden');
+  }
+  game = "gameover";
 };
 
 const tie = () => {
   message.text(`It's a tie!`);
+  xTurnIcon.removeClass('hidden');
+  oTurnIcon.removeClass('hidden');
 };
 
 // Clear field button
