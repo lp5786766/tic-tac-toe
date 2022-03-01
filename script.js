@@ -41,31 +41,30 @@ field.on('click', function (event) {
       let boxNine = $('#9').text();
       console.log(turn);
       console.log(boxTwo);
+      console.log(boxFive);
+      console.log(boxEight);
       // CHECK AGAINST WINNING COMBINATIONS FUNCTION:
-      if (
-        (boxOne === 'x' && boxTwo === 'x' && boxThree === 'x') ||
-        (boxOne === 'x' && boxFive === 'x' && boxNine === 'x') ||
-        (boxOne === 'x' && boxFour === 'x' && boxSeven === 'x') ||
-        (boxTwo === 'x' && boxFive === 'x' && boxEight === 'x') ||
-        (boxThree === 'x' && boxSix === 'x' && boxNine === 'x') ||
-        (boxFour === 'x' && boxFive === 'x' && boxSix === 'x') ||
-        (boxSeven === 'x' && boxEight === 'x' && boxNine === 'x') ||
-        (boxThree === 'x' && boxFive === 'x' && boxSeven === 'x')
-      ) {
-        xWin();
-        game = 'gameover';
-      } else if (
-        (boxOne === 'o' && boxTwo === 'o' && boxThree === 'o') ||
-        (boxOne === 'o' && boxFive === 'o' && boxNine === 'o') ||
-        (boxOne === 'o' && boxFour === 'o' && boxSeven === 'o') ||
-        (boxTwo === 'o' && boxFive === 'o' && boxEight === 'o') ||
-        (boxThree === 'o' && boxSix === 'o' && boxNine === 'o') ||
-        (boxFour === 'o' && boxFive === 'o' && boxSix === 'o') ||
-        (boxSeven === 'o' && boxEight === 'o' && boxNine === 'o') ||
-        (boxThree === 'o' && boxFive === 'o' && boxSeven === 'o')
-      ) {
-        oWin();
-        game = 'gameover';
+
+      if (boxOne === boxTwo && boxOne === boxThree  && boxOne !== "") {
+       console.log(`${boxOne} wins!`);
+      //  boxOne.addClass('win-cross');
+      } else if (boxOne === boxFive && boxOne === boxNine  && boxOne !== "") {
+        console.log(`${boxOne} wins!`);
+      } else if (boxOne === boxFour && boxOne === boxSeven && boxOne !== "") {
+        console.log(`${boxOne} wins!`);
+      } else if (boxTwo === boxFive && boxTwo === boxEight  && boxTwo !== "") {
+        console.log(`${boxTwo} wins!`);
+      } else if (boxThree === boxSix && boxThree === boxNine  && boxThree !== "") {
+        console.log(`${boxThree} wins!`);
+      } else if (boxThree === boxFive && boxThree === boxSeven && boxThree !== "") {
+        console.log(`${boxThree} wins!`);
+        // xWin();
+        // game = 'gameover';
+      }  
+      else if (boxFour === boxFive && boxFour === boxSix && boxFour !== "") {
+        console.log(`${boxFour} wins!`);
+      } else if (boxSeven === boxEight && boxSeven === boxNine && boxSeven !== "") {
+        console.log(`${boxSeven} wins!`);
       } else if (
         // tie conditions
         boxOne !== '' &&
@@ -129,5 +128,5 @@ $('.clear').on('click', function (event) {
   $('.field').empty();
   message = $('#message').text('Crosses, your turn!');
   turn = 1;
-  game = " ";
+  game = ' ';
 });

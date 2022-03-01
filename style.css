@@ -34,6 +34,10 @@ h1 {
     background-color: gray;
 }
 
+.win-cross {
+    background-color: rgb(31, 117, 31);
+}
+
 .nav-wrapper {
     text-align: center;
 }
