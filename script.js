@@ -1,4 +1,4 @@
-let turn = 1;
+let turn = 'x';
 let game;
 let result;
 let message = $('#message');
@@ -13,15 +13,15 @@ field.on('click', function (event) {
       const x = $('<p>x</p>').addClass('token');
       const o = $('<p>o</p>').addClass('token');
       // according to turns
-      if (turn === 1) {
+      if (turn === 'x') {
         $(this).append(x);
-        turn = 0;
+        turn = 'o';
         xTurnIcon.addClass('hidden');
         oTurnIcon.removeClass('hidden');
         message.text('Holes, your turn!');
-      } else if (turn === 0) {
+      } else if (turn === 'o') {
         $(this).append(o);
-        turn = 1;
+        turn = 'x';
         oTurnIcon.addClass('hidden');
         xTurnIcon.removeClass('hidden');
         message.text('Crosses, your turn!');
@@ -87,12 +87,13 @@ field.mouseover(function () {
   if (game === 'gameover') {
   } else {
     if ($(this).html() === '') {
-      $(this).addClass('hover');
+
+      $(this).addClass(`hover ${turn}`);
     }
   }
 });
 field.mouseout(function () {
-  $(this).removeClass('hover');
+  $(this).removeClass(`hover`);
 });
 
 // Win
@@ -120,6 +121,6 @@ const tie = () => {
 $('.clear').on('click', function (event) {
   $('.field').empty();
   message = $('#message').text('Crosses, your turn!');
-  turn = 1;
+  turn = 'x';
   game = ' ';
 });

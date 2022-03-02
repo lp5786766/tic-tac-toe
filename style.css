@@ -34,8 +34,12 @@ h1 {
     background-color: gray;
 }
 
-.win-cross {
+.hover.x {
     background-color: rgb(16, 61, 16);
+}
+
+.hover.o {
+    background-color: rgb(124, 45, 69);
 }
 
 .nav-wrapper {
