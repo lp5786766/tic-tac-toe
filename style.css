@@ -30,9 +30,6 @@ h1 {
 .fa-bullseye {
     color: red;
 }
-.hover {
-    background-color: gray;
-}
 
 .hover.x {
     background-color: rgb(16, 61, 16);
