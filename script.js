@@ -82,7 +82,7 @@ field.on('click', function (event) {
   return result;
 });
 
-// change background of the field while hover (make different colors later)
+// change background of the field while hover
 field.mouseover(function () {
   if (game === 'gameover') {
   } else {
@@ -93,7 +93,7 @@ field.mouseover(function () {
   }
 });
 field.mouseout(function () {
-  $(this).removeClass(`hover`);
+  $(this).removeClass(`hover ${turn}`);
 });
 
 // Win
@@ -119,8 +119,5 @@ const tie = () => {
 
 // Clear field button
 $('.clear').on('click', function (event) {
-  $('.field').empty();
-  message = $('#message').text('Crosses, your turn!');
-  turn = 'x';
-  game = ' ';
+  location.reload();
 });
